@@ -1,3 +1,4 @@
+import 'package:coding_with_t/screens/container.dart';
 import 'package:coding_with_t/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: "Coding With Tea", home: Dashboard());
+    return const MaterialApp(
+      title: "Coding With Tea",
+      // home: Dashboard()
+      home: ContainerScreen(),
+    );
   }
 }
