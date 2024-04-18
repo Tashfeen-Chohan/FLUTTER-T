@@ -14,7 +14,7 @@ class LayoutScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
-            // mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Expanded(
                 child: Icon(
@@ -36,6 +36,9 @@ class LayoutScreen extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          SizedBox(
+            height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
