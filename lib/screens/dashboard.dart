@@ -29,11 +29,29 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {},
+        ),
         title: const Text(
-          "Dashboard",
+          "DASHBAORD",
           style: TextStyle(color: Colors.white),
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.shopping_cart),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          ),
+        ],
         backgroundColor: Colors.deepPurple,
+        foregroundColor: Colors.white,
+        centerTitle: true,
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(15))),
       ),
       body: Center(
         child: Column(
@@ -59,15 +77,8 @@ class _DashboardState extends State<Dashboard> {
             const SizedBox(
               height: 10,
             ),
-            IconButton(
-                icon: const Icon(
-                  Icons.account_balance_sharp,
-                ),
-                onPressed: () {},
-                color: Colors.deepPurple,
-                splashColor: Colors.orange),
+
             // CONTAINER
-            
           ],
         ),
       ),

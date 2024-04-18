@@ -1,5 +1,6 @@
 import 'package:coding_with_t/screens/container.dart';
 import 'package:coding_with_t/screens/dashboard.dart';
+import 'package:coding_with_t/screens/layout.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,8 +14,10 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: "Coding With Tea",
-      // home: Dashboard()
-      home: ContainerScreen(),
+      debugShowCheckedModeBanner: false,
+      // home: Dashboard(),
+      home: LayoutScreen(),
+      // home: ContainerScreen(),
     );
   }
 }
