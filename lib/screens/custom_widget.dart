@@ -9,8 +9,12 @@ class CustomWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Custom Widget"),
+        title: const Text(
+          "Custom Widget",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.blue,
+        centerTitle: true,
       ),
       drawer: const MyDrawer(),
       body: ListView(
@@ -40,6 +44,12 @@ class CustomWidget extends StatelessWidget {
             subTitle: "A comfortable gaming chair",
             leadingIcon: Icons.chair_alt,
             listTileColor: Colors.lightBlue,
+          ),
+          ListTileWidget(
+            title: "Table",
+            subTitle: "A comfortable computer table",
+            leadingIcon: Icons.table_restaurant_outlined,
+            listTileColor: Colors.teal,
           ),
         ],
       ),

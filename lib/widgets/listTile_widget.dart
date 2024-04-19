@@ -19,21 +19,26 @@ class ListTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-      child: ListTile(
-        leading: Icon(
-          leadingIcon,
-          color: iconColor,
-          size: 30,
+    return Card(
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
         ),
-        title: Text(
-          title,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        child: ListTile(
+          leading: Icon(
+            leadingIcon,
+            color: iconColor,
+            size: 30,
+          ),
+          title: Text(
+            title,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
+          subtitle: Text(subTitle),
+          trailing: Icon(trailingIcon),
+          tileColor: listTileColor,
         ),
-        subtitle: Text(subTitle),
-        trailing: Icon(trailingIcon),
-        tileColor: listTileColor,
       ),
     );
   }

@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 class ListViewScreen extends StatelessWidget {
   ListViewScreen({super.key});
 
-  List<String> products = ["Bed", "Sofa", "Chair", "Table", "Laptop"];
-  List<String> productDetails = [
+  final List<String> products = ["Bed", "Sofa", "Chair", "Table", "Laptop"];
+  final List<String> productDetails = [
     "King size bed",
     "Comfortable sofa",
     "Gaming chair",
     "A dining table",
     "Hp 840 G5"
   ];
-  List<int> price = [2500, 2000, 1500, 1200, 7500];
+  final List<int> price = [2500, 2000, 1500, 1200, 7500];
 
   @override
   Widget build(BuildContext context) {
