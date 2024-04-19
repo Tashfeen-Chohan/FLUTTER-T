@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({super.key});
+  const DetailsScreen(
+      {super.key, required this.productName, required this.productDescription});
+
+  final String productName, productDescription;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,15 @@ class DetailsScreen extends StatelessWidget {
         backgroundColor: Colors.amber,
         centerTitle: true,
       ),
-      body: const Center(child: Text("Details Screen")),
+      body: ListView(
+        children: [
+          ListTile(
+            leading: const Icon(Icons.production_quantity_limits),
+            title: Text(productName),
+            subtitle: Text(productDescription),
+          ),
+        ],
+      ),
     );
   }
 }
