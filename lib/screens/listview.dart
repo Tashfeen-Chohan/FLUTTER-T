@@ -4,14 +4,15 @@ import 'package:flutter/material.dart';
 class ListViewScreen extends StatelessWidget {
   ListViewScreen({super.key});
 
-  List<String> products = ["Bed", "Sofa", "Chair", "Table"];
+  List<String> products = ["Bed", "Sofa", "Chair", "Table", "Laptop"];
   List<String> productDetails = [
     "King size bed",
     "Comfortable sofa",
     "Gaming chair",
-    "A dining table"
+    "A dining table",
+    "Hp 840 G5"
   ];
-  List<int> price = [2500, 2000, 1500, 1200];
+  List<int> price = [2500, 2000, 1500, 1200, 7500];
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +46,41 @@ class ListViewScreen extends StatelessWidget {
               );
             }),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        shape: const CircleBorder(),
+        backgroundColor: Colors.amber,
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
+      bottomNavigationBar: const BottomAppBar(
+          color: Colors.amber,
+          notchMargin: 8,
+          shape: CircularNotchedRectangle(),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Column(
+                children: [Icon(Icons.home), Text("Home")],
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 10),
+                child: Column(
+                  children: [Icon(Icons.shopping_cart), Text("Shop")],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 25),
+                child: Column(
+                  children: [Icon(Icons.favorite), Text("Fav")],
+                ),
+              ),
+              Column(
+                children: [Icon(Icons.settings), Text("Settings")],
+              ),
+            ],
+          )),
     );
   }
 }

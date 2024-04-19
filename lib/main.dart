@@ -1,4 +1,5 @@
 import 'package:coding_with_t/screens/container.dart';
+import 'package:coding_with_t/screens/custom_widget.dart';
 import 'package:coding_with_t/screens/dashboard.dart';
 import 'package:coding_with_t/screens/layout.dart';
 import 'package:coding_with_t/screens/listview.dart';
@@ -13,13 +14,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: "Coding With Tea",
       debugShowCheckedModeBanner: false,
       // home: Dashboard(),
       // home: ContainerScreen(),
       // home: LayoutScreen(),
-      home: ListViewScreen(),
+      // home: ListViewScreen(),
+      home: CustomWidget(),
     );
   }
 }
