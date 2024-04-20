@@ -1,3 +1,4 @@
+import 'package:coding_with_t/common/appbar.dart';
 import 'package:flutter/material.dart';
 
 class ContainerScreen extends StatelessWidget {
@@ -6,12 +7,11 @@ class ContainerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "CONTAINER",
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: Colors.deepPurple,
+      appBar: const MyAppBar(
+        title: "Container",
+        backgroundColor: Colors.amber,
+        foregroundColor: Colors.black,
+        trailingIcon: Icons.photo_library_outlined,
       ),
       body: Center(
         child: Column(

@@ -1,3 +1,4 @@
+import 'package:coding_with_t/common/appbar.dart';
 import 'package:coding_with_t/common/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -17,10 +18,11 @@ class ListViewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("LISTVIEW"),
-        backgroundColor: Colors.amber,
-        centerTitle: true,
+      appBar: const MyAppBar(
+        title: "ListView",
+        backgroundColor: Colors.amberAccent,
+        foregroundColor: Colors.black,
+        trailingIcon: Icons.list_alt_outlined,
       ),
       drawer: const MyDrawer(),
       body: Padding(

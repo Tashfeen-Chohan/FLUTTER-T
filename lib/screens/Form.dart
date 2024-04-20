@@ -37,7 +37,6 @@ class _FormScreenState extends State<FormScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(title: "Form"),
-      drawer: const MyDrawer(),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20),

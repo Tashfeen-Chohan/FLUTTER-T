@@ -1,3 +1,4 @@
+import 'package:coding_with_t/common/appbar.dart';
 import 'package:flutter/material.dart';
 
 class LayoutScreen extends StatelessWidget {
@@ -5,12 +6,14 @@ class LayoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Column & Row"),
-        backgroundColor: Colors.amber,
+    return const Scaffold(
+      appBar: MyAppBar(
+        title: "Rows & Columns",
+        backgroundColor: Colors.amberAccent,
+        foregroundColor: Colors.black,
+        trailingIcon: Icons.display_settings_rounded,
       ),
-      body: const Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(

@@ -1,3 +1,4 @@
+import 'package:coding_with_t/common/appbar.dart';
 import 'package:coding_with_t/models/product_model.dart';
 import 'package:flutter/material.dart';
 
@@ -9,16 +10,11 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: const Text("Details"),
-        backgroundColor: Colors.amber,
-        centerTitle: true,
+      appBar: const MyAppBar(
+        title: "Details",
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.amberAccent,
+        trailingIcon: Icons.details,
       ),
       body: Padding(
         padding: const EdgeInsets.all(15),
@@ -32,7 +28,6 @@ class DetailsScreen extends StatelessWidget {
                 size: 40,
               ),
               title: Column(
-                
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
