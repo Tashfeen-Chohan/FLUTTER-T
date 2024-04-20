@@ -3,6 +3,8 @@ import 'package:coding_with_t/common/drawer.dart';
 import 'package:coding_with_t/screens/details.dart';
 import 'package:flutter/material.dart';
 
+enum ProductType { deliverable, downloadable }
+
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key});
 
@@ -13,6 +15,8 @@ class FormScreen extends StatefulWidget {
 class _FormScreenState extends State<FormScreen> {
   final TextEditingController productNameController = TextEditingController();
   final TextEditingController productDescController = TextEditingController();
+  bool topProduct = false;
+  ProductType _selectedType = ProductType.deliverable;
 
   @override
   void dispose() {
@@ -50,12 +54,65 @@ class _FormScreenState extends State<FormScreen> {
                   border: OutlineInputBorder(),
                   prefixIcon: Icon(Icons.verified_user_outlined)),
             ),
+            CheckboxListTile(
+                contentPadding: const EdgeInsets.all(0),
+                title: const Text("Top Product"),
+                controlAffinity: ListTileControlAffinity.leading,
+                value: topProduct,
+                onChanged: (val) {
+                  setState(() {
+                    topProduct = val!;
+                  });
+                }),
+            Row(
+              children: [
+                Expanded(
+                  child: RadioListTile<ProductType>(
+                    title: Text(ProductType.deliverable.name),
+                    value: ProductType.deliverable,
+                    groupValue: _selectedType,
+                    dense: true,
+                    contentPadding: const EdgeInsets.all(0),
+                    tileColor: Colors.deepPurple.shade100,
+                    shape: BeveledRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    onChanged: (val) {
+                      setState(() {
+                        _selectedType = val!;
+                      });
+                    },
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: RadioListTile<ProductType>(
+                    title: Text(ProductType.downloadable.name),
+                    value: ProductType.downloadable,
+                    groupValue: _selectedType,
+                    dense: true,
+                    contentPadding: const EdgeInsets.all(0),
+                    tileColor: Colors.deepPurple.shade100,
+                    shape: BeveledRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    onChanged: (val) {
+                      setState(() {
+                        _selectedType = val!;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(
               height: 20,
             ),
             ElevatedButton(
               onPressed: () => changeScreen(context, productNameController.text,
-                  productDescController.text),
+                  productDescController.text, topProduct),
               child: const Text("Add Product"),
             ),
           ]),
@@ -64,11 +121,13 @@ class _FormScreenState extends State<FormScreen> {
     );
   }
 
-  void changeScreen(BuildContext context, String prodName, String prodDesc) {
+  void changeScreen(
+      BuildContext context, String prodName, String prodDesc, bool topProduct) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return DetailsScreen(
         productName: prodName,
         productDescription: prodDesc,
+        topProduct: topProduct,
       );
     }));
     productNameController.text = "";
