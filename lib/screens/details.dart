@@ -1,14 +1,10 @@
+import 'package:coding_with_t/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class DetailsScreen extends StatelessWidget {
-  const DetailsScreen(
-      {super.key,
-      required this.productName,
-      required this.productDescription,
-      required this.topProduct});
+  const DetailsScreen({super.key, required this.productModel});
 
-  final String productName, productDescription;
-  final bool topProduct;
+  final ProductModel productModel;
 
   @override
   Widget build(BuildContext context) {
@@ -20,21 +16,60 @@ class DetailsScreen extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
-        title: Text(productName),
+        title: const Text("Details"),
         backgroundColor: Colors.amber,
         centerTitle: true,
       ),
-      body: ListView(
-        children: [
-          ListTile(
-            leading: topProduct
-                ? const Icon(Icons.favorite)
-                : const Icon(Icons.favorite_outline),
-            title: Text(productName),
-            subtitle: Text(productDescription),
-            trailing: const Icon(Icons.delete),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(15),
+        child: ListView(
+          children: [
+            ListTile(
+              shape: const RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.deepPurple, width: 2)),
+              leading: const Icon(
+                Icons.shopify_rounded,
+                size: 40,
+              ),
+              title: Column(
+                
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    productModel.isTopProduct
+                        ? const Chip(
+                            backgroundColor: Colors.deepPurple,
+                            label: Text(
+                              "Top Product",
+                              style: TextStyle(color: Colors.white),
+                            ))
+                        : const Text(""),
+                    Text(
+                      productModel.productName,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(productModel.productDesc),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        OutlinedButton(
+                          onPressed: () {},
+                          child: Text(productModel.productSize),
+                        ),
+                        // OutlinedButton(
+                        //   onPressed: () {},
+                        //   child: Text(productModel.productType as String),
+                        // ),
+                      ],
+                    )
+                  ]),
+              trailing: const Icon(
+                Icons.delete,
+                size: 30,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
